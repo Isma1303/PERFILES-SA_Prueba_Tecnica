@@ -11,6 +11,5 @@ namespace PERFILES_SA.Data
 
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Department> Departments { get; set; }
-        // Add other DbSets here if needed
     }
 }

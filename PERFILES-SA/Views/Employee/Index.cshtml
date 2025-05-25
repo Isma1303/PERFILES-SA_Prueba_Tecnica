@@ -10,6 +10,12 @@
     <div class="col-md-12">
         <form asp-action="Index" method="get" class="row g-3">
             <div class="col-md-3">
+                <label class="form-label">Departamento</label>
+                <select name="departmentId" class="form-select" asp-items="ViewBag.Departments">
+                    <option value="">Todos los departamentos</option>
+                </select>
+            </div>
+            <div class="col-md-3">
                 <label class="form-label">Fecha Inicio</label>
                 <input type="date" name="startDate" class="form-control" value="@Context.Request.Query["startDate"]" />
             </div>
@@ -33,14 +39,14 @@
     <table class="table table-striped table-hover">
         <thead class="table-dark">
             <tr>
-                <th>Nombres</th>
-                <th>DPI</th>
-                <th>Edad</th>
-                <th>Género</th>
-                <th>Departamento</th>
-                <th>Tiempo Laborando</th>
-                <th>Estado</th>
-                <th>Acciones</th>
+                <th style="color: black;">Nombres</th>
+                <th style="color: black;">DPI</th>
+                <th style="color: black;">Edad</th>
+                <th style="color: black;">Género</th>
+                <th style="color: black;">Departamento</th>
+                <th style="color: black;">Tiempo Laborando</th>
+                <th style="color: black;">Estado</th>
+                <th style="color: black;">Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -61,7 +67,7 @@
                     <td>@(item.Department?.Name ?? "Sin departamento")</td>
                     <td>@años años, @meses meses</td>
                     <td>
-                        @if (item.Department?.IsActive ?? false)
+                        @if (item.IsActive)
                         {
                             <span class="badge bg-success">Activo</span>
                         }
@@ -73,6 +79,7 @@
                     <td>
                         <div class="btn-group" role="group">
                             <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning btn-sm">Editar</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de que quieres eliminar a @item.Names?');">Eliminar</a>
                         </div>
                     </td>
                 </tr>

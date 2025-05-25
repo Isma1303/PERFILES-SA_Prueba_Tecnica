@@ -1,0 +1,16 @@
+CREATE TABLE Employees (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    Names NVARCHAR(100) NOT NULL,
+    DPI NVARCHAR(13) NOT NULL,
+    DateOfBirth DATE NOT NULL,
+    Gender NVARCHAR(1) NOT NULL,
+    HireDate DATE NOT NULL,
+    DepartmentId INT NOT NULL,
+    IsActive BIT NOT NULL DEFAULT 1,
+    CONSTRAINT FK_Employees_Departments FOREIGN KEY (DepartmentId) REFERENCES Departments(Id)
+);
+CREATE TABLE Departments (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    Name NVARCHAR(50) NOT NULL,
+    IsActive BIT NOT NULL DEFAULT 1
+);

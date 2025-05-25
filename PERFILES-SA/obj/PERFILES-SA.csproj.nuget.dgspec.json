@@ -1,36 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Administrator\\source\\repos\\PERFILES-SA\\PERFILES-SA\\PERFILES-SA.csproj": {}
+    "/Users/alejandro/Desktop/PERFILES-SA_Prueba_Tecnica/PERFILES-SA/PERFILES-SA.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Administrator\\source\\repos\\PERFILES-SA\\PERFILES-SA\\PERFILES-SA.csproj": {
+    "/Users/alejandro/Desktop/PERFILES-SA_Prueba_Tecnica/PERFILES-SA/PERFILES-SA.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Administrator\\source\\repos\\PERFILES-SA\\PERFILES-SA\\PERFILES-SA.csproj",
+        "projectUniqueName": "/Users/alejandro/Desktop/PERFILES-SA_Prueba_Tecnica/PERFILES-SA/PERFILES-SA.csproj",
         "projectName": "PERFILES-SA",
-        "projectPath": "C:\\Users\\Administrator\\source\\repos\\PERFILES-SA\\PERFILES-SA\\PERFILES-SA.csproj",
-        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Administrator\\source\\repos\\PERFILES-SA\\PERFILES-SA\\obj\\",
+        "projectPath": "/Users/alejandro/Desktop/PERFILES-SA_Prueba_Tecnica/PERFILES-SA/PERFILES-SA.csproj",
+        "packagesPath": "/Users/alejandro/.nuget/packages/",
+        "outputPath": "/Users/alejandro/Desktop/PERFILES-SA_Prueba_Tecnica/PERFILES-SA/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/alejandro/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "net8.0"
+          "net7.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "/usr/local/share/dotnet/library-packs": {},
+          "/usr/local/share/dotnet/sdk/7.0.317/Sdks/Microsoft.NET.Sdk.Web/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net8.0": {
-            "targetAlias": "net8.0",
+          "net7.0": {
+            "targetAlias": "net7.0",
             "projectReferences": {}
           }
         },
@@ -38,27 +34,21 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.300"
+        }
       },
       "frameworks": {
-        "net8.0": {
-          "targetAlias": "net8.0",
+        "net7.0": {
+          "targetAlias": "net7.0",
           "dependencies": {
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[9.0.5, )"
+              "version": "[7.0.15, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[9.0.5, )"
+              "version": "[7.0.15, )"
             },
             "Mono.TextTemplating": {
               "target": "Package",
@@ -84,7 +74,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.317/RuntimeIdentifierGraph.json"
         }
       }
     }

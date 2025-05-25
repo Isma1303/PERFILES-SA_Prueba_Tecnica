@@ -6,6 +6,10 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<DatabaseHelper>();
 
+// Setup the database with required tables and sample data
+var dbHelper = new PERFILES_SA.Data.DatabaseHelper();
+dbHelper.SetupDatabase();
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())

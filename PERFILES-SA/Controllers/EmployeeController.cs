@@ -2,17 +2,22 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using PERFILES_SA.Models;
-using PERFILES_SA.Data; 
+using PERFILES_SA.Data;
 namespace PERFILES_SA.Controllers
 {
     public class EmployeeController : Controller
     {
         private readonly DatabaseHelper _dbHelper = new DatabaseHelper();
 
-        public IActionResult Index(DateTime? startDate, DateTime? endDate)
+        public IActionResult Index(DateTime? startDate, DateTime? endDate, int? departmentId)
         {
             var employees = _dbHelper.GetAllEmployees();
             var query = employees.AsQueryable();
+
+            if (departmentId.HasValue)
+            {
+                query = query.Where(e => e.DepartmentId == departmentId.Value);
+            }
 
             if (startDate.HasValue)
             {
@@ -24,6 +29,7 @@ namespace PERFILES_SA.Controllers
                 query = query.Where(e => e.HireDate <= endDate.Value);
             }
 
+            ViewBag.Departments = new SelectList(_dbHelper.GetAllDepartments(), "Id", "Name");
             return View(query.ToList());
         }
 
@@ -35,7 +41,7 @@ namespace PERFILES_SA.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create([Bind("Names,DPI,DateOfBirth,Gender,HireDate,DepartmentId")] Employee employee)
+        public IActionResult Create([Bind("Names,DPI,DateOfBirth,Gender,HireDate,DepartmentId,IsActive")] Employee employee)
         {
             if (ModelState.IsValid)
             {
@@ -59,7 +65,7 @@ namespace PERFILES_SA.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(int id, [Bind("Id,Names,DPI,DateOfBirth,Gender,HireDate,DepartmentId")] Employee employee)
+        public IActionResult Edit(int id, [Bind("Id,Names,DPI,DateOfBirth,Gender,HireDate,DepartmentId,IsActive")] Employee employee)
         {
             if (id != employee.Id)
             {
@@ -72,6 +78,26 @@ namespace PERFILES_SA.Controllers
             }
             ViewData["DepartmentId"] = new SelectList(_dbHelper.GetAllDepartments().Where(d => d.IsActive), "Id", "Name", employee.DepartmentId);
             return View(employee);
+        }
+
+        // GET: Employee/Delete/5
+        public IActionResult Delete(int id)
+        {
+            var employee = _dbHelper.GetAllEmployees().FirstOrDefault(e => e.Id == id);
+            if (employee == null)
+            {
+                return NotFound();
+            }
+            return View(employee);
+        }
+
+        // POST: Employee/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            _dbHelper.DeleteEmployee(id);
+            return RedirectToAction(nameof(Index));
         }
     }
 }
