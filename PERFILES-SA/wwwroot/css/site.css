@@ -1,0 +1,74 @@
+html {
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.btn:focus,
+.btn:active:focus,
+.btn-link.nav-link:focus,
+.form-control:focus,
+.form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px;
+}
+
+.navbar {
+    background-color: #f8f9fa;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    color: #333;
+}
+
+.nav-link {
+    color: #666;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #258cfb;
+}
+
+.container {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.table {
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.table thead th {
+    background-color: #f8f9fa;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.btn-primary {
+    background-color: #258cfb;
+    border-color: #258cfb;
+}
+
+.btn-primary:hover {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
